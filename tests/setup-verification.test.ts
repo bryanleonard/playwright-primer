@@ -1,8 +1,9 @@
-import { chromium } from '@playwright/test';
+import { test, chromium } from '@playwright/test';
 
-(async function verifyScript() {
+test("Verify simple script", async () => {
+	
 	const browser = await chromium.launch();
 	await browser.close();
 
 	console.log(`Browser opened and closed successfully.`);
-})();
+});

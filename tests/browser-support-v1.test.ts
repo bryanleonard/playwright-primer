@@ -1,25 +1,25 @@
-import { test, chromium, webkit, firefox } from "@playwright/test";
-
-// This test should be run with the `--workers=1` flag to prevent async from running multiple times
+// V1 of this test. It should be run with the `--workers=1` flag to prevent async from running multiple times
 // This test is also kind of an anti-pattern.
-test("Browser support test", async () => {
-	const browserTypes = [chromium, firefox, webkit];
-	const now = new Date();
-	const timestamp = now.toISOString().replace(/[:.]/g, "-");
+// import { test, chromium, webkit, firefox } from "@playwright/test";
 
-	for (const browserType of browserTypes) {
-		console.log(`Running: ${browserType.name()}`);
+// test("Browser support test", async () => {
+// 	const browserTypes = [chromium, firefox, webkit];
+// 	const now = new Date();
+// 	const timestamp = now.toISOString().replace(/[:.]/g, "-");
 
-		const browser = await browserType.launch();
-		const page = await browser.newPage();
+// 	for (const browserType of browserTypes) {
+// 		console.log(`Running: ${browserType.name()}`);
 
-		await page.goto("https://www.whatsmybrowser.org/");
-		await page.screenshot({
-			path: `tests-screenshots/pw-${browserType.name()}-${timestamp}.png`,
-		});
+// 		const browser = await browserType.launch();
+// 		const page = await browser.newPage();
 
-		await page.close();
-		await browser.close();
-	}
-});
+// 		await page.goto("https://www.whatsmybrowser.org/");
+// 		await page.screenshot({
+// 			path: `tests-screenshots/pw-${browserType.name()}-${timestamp}.png`,
+// 		});
+
+// 		await page.close();
+// 		await browser.close();
+// 	}
+// });
 
