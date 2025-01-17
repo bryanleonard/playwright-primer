@@ -13,6 +13,6 @@ test('Test with Fixtures', async({ page }) => {
 test('Test Localhost', async({ page }) => {
 	await page.goto('http://localhost:3000');
 
-	await expect(page).toHaveTitle('Credit Association');
+	await expect(page).toHaveTitle('Imaginary Credit Association');
 	await expect(page).toHaveURL('http://localhost:3000');
 });

@@ -22,7 +22,7 @@
   function displayReturn() {
     let sum = input.value;
     if (sum < 1) { return; }
-    let selected = period.options[period.selectedIndex].value;
+    let selected = period.options[period.selectedIndex].value.toLowerCase();    
     let periodInYears = convertPeriod(selected);
     let expectedReturn = calculateReturn(sum, periodInYears);
     let roundedReturn = parseFloat(expectedReturn).toFixed(2);
@@ -32,12 +32,12 @@
 
   function convertPeriod(option) {
     let periodKeys = Array.from(periodYields.keys());
-    switch (option) {
-      case '6 Months':
+    switch (option.toLowerCase()) {
+      case '6 months':
         return periodKeys[0];
-      case '1 Year':
+      case '1 year':
         return periodKeys[1];
-      case '2 Years':
+      case '2 years':
         return periodKeys[2];
     }
   }

@@ -38,7 +38,6 @@ test('Multi step test', async ({ page }) => {
 
 	await page.on('dialog', async (dialog) => {
 		
-		console.log('Hi', dialog.type());
 		expect(dialog.type()).toEqual('confirm');
 
 		expect(dialog.message()).toEqual('This will clear all inputs. Continue?');
