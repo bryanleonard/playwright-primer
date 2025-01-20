@@ -30,8 +30,19 @@ test('Checkbox test', async ({ page }) => {
 	await expect(validations.first()).toContainText('Valid first name is required');
 });
 
+
 test('Negating matches', async ({ page }) => {
 	await page.goto('/');
 
 	await expect(page.getByTestId('location')).toContainText('on the planet');
+	await expect(page.getByTestId('location')).not.toContainText('Akron, OH');
+})
+
+
+test('Soft assertion tests', async ({ page }) => {
+	await page.goto('/');
+
+	await expect.soft(page.getByTestId('location')).not.toContainText('Deserunt adipiscing nisi');
+	await expect.soft(page.getByTestId('location')).not.toContainText('Consectetur ad');
+	await expect.soft(page.getByTestId('location')).not.toContainText('Nostrud');
 })
