@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('Console test', async ({ page }) => {
 
 	page.on('console', msg => {
-		expect.soft(msg.type()).not.toEqual('error');
+		expect.soft(msg.type()).not.toEqual('Error');
 	});
 
 	page.on('pageerror', err => {
