@@ -1,5 +1,5 @@
 # playwright-primer
-A repo exploring the usage of Playwright in Node.js.
+A repo exploring the usage of Playwright in Node.js for end-to-end testing.
 
 [https://playwright.dev](https://playwright.dev)
 
